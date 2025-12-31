@@ -1,0 +1,79 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/mjayesh/devmode/projects/InventorySystem/Inventory.Consumer/Inventory.Consumer.csproj": {}
+  },
+  "projects": {
+    "/home/mjayesh/devmode/projects/InventorySystem/Inventory.Consumer/Inventory.Consumer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/mjayesh/devmode/projects/InventorySystem/Inventory.Consumer/Inventory.Consumer.csproj",
+        "projectName": "Inventory.Consumer",
+        "projectPath": "/home/mjayesh/devmode/projects/InventorySystem/Inventory.Consumer/Inventory.Consumer.csproj",
+        "packagesPath": "/home/mjayesh/.nuget/packages/",
+        "outputPath": "/home/mjayesh/devmode/projects/InventorySystem/Inventory.Consumer/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/mjayesh/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.66, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[7.2.0, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.10.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/8.0.122/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

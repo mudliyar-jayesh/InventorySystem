@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: tally_broker
+    ports:
+      - "5673:5672"
+      - "15672:15672"
+
+  redis:
+    image: redis:alpine
+    container_name: tally_cache
+    ports:
+      - "6379:6379"
+  postgres:
+    image: postgres:15
+    container_name: tally_db
+    environment:
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "betterChimp_314"
+      POSTGRES_DB: "TallyData"
+    ports:
+      - "5432:5432"

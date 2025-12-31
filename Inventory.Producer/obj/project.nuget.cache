@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "3ZUbQvoegTs1eXESMLCS60dTs7g+fqeGxoy8SM4tr7YCc8sKOGM6a6DvB+SNJhYsL1QD0gSgXtI+ZYws5xqUOQ==",
+  "success": true,
+  "projectFilePath": "/home/mjayesh/devmode/projects/InventorySystem/Inventory.Producer/Inventory.Producer.csproj",
+  "expectedPackageFiles": [
+    "/home/mjayesh/.nuget/packages/rabbitmq.client/7.2.0/rabbitmq.client.7.2.0.nupkg.sha512",
+    "/home/mjayesh/.nuget/packages/system.io.pipelines/8.0.0/system.io.pipelines.8.0.0.nupkg.sha512",
+    "/home/mjayesh/.nuget/packages/system.threading.ratelimiting/8.0.0/system.threading.ratelimiting.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

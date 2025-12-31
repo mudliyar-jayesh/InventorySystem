@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Inventory Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .card { border: 1px solid #ccc; padding: 20px; margin: 10px; width: 200px; display: inline-block; border-radius: 8px; }
+        .sku { font-size: 1.2em; font-weight: bold; }
+        .count { font-size: 2em; color: green; }
+        .highlight { animation: flash 1s; }
+        @keyframes flash { 0% { background-color: yellow; } 100% { background-color: white; } }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Inventory</h1>
+    <div id="container"></div>
+
+    <script>
+        // 1. Connect to the API Hub
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("http://localhost:5000/hubs/stock")
+            .build();
+
+        // 2. Define what happens when we receive an update
+        connection.on("ReceiveStockUpdate", function (message) {
+            const data = JSON.parse(message);
+            updateCard(data.sku, data.count);
+        });
+
+        // 3. Start Connection
+        connection.start().then(() => console.log("Connected to SignalR")).catch(err => console.error(err));
+
+        // Helper to update DOM
+        function updateCard(sku, count) {
+            let card = document.getElementById(sku);
+            if (!card) {
+                card = document.createElement("div");
+                card.id = sku;
+                card.className = "card";
+                document.getElementById("container").appendChild(card);
+            }
+            card.innerHTML = `<div class="sku">${sku}</div><div class="count">${count}</div>`;
+            
+            // Visual Flash Effect
+            card.classList.remove("highlight");
+            void card.offsetWidth; // trigger reflow
+            card.classList.add("highlight");
+        }
+    </script>
+</body>
+</html>

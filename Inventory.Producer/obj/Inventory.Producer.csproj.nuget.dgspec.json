@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/mjayesh/devmode/projects/InventorySystem/Inventory.Producer/Inventory.Producer.csproj": {}
+  },
+  "projects": {
+    "/home/mjayesh/devmode/projects/InventorySystem/Inventory.Producer/Inventory.Producer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/mjayesh/devmode/projects/InventorySystem/Inventory.Producer/Inventory.Producer.csproj",
+        "projectName": "Inventory.Producer",
+        "projectPath": "/home/mjayesh/devmode/projects/InventorySystem/Inventory.Producer/Inventory.Producer.csproj",
+        "packagesPath": "/home/mjayesh/.nuget/packages/",
+        "outputPath": "/home/mjayesh/devmode/projects/InventorySystem/Inventory.Producer/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/mjayesh/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[7.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/8.0.122/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
