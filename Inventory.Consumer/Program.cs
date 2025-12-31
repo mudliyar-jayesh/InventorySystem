@@ -7,7 +7,13 @@ using RabbitMQ.Client.Events;
 using StackExchange.Redis;
 
 
-const string DbConnectionString = "Host=localhost;Port=5432;Username=admin;Password=betterChimp_314;Database=TallyData";
+var rabbitHost = Environment.GetEnvironmentVariable("RabbitHost") ?? "localhost";
+var rabbitPort = int.Parse(Environment.GetEnvironmentVariable("RabbitPort") ?? "5673");
+var dbHost = Environment.GetEnvironmentVariable("DbHost") ?? "localhost";
+var redisHost = Environment.GetEnvironmentVariable("RedisHost") ?? "localhost";
+
+
+string DbConnectionString = $"Host={dbHost};Port=5432;Username=admin;Password=betterChimp_314;Database=TallyData";
 
 
 using (var dbConnection = new NpgsqlConnection(DbConnectionString))
@@ -24,12 +30,12 @@ using (var dbConnection = new NpgsqlConnection(DbConnectionString))
     Console.WriteLine("[System] Database Connected & Table Verified");
 }
 
-var redis = ConnectionMultiplexer.Connect("localhost");
+var redis = ConnectionMultiplexer.Connect(redisHost);
 var db = redis.GetDatabase();
 Console.WriteLine("Connected to Redis");
 
 
-var factory = new ConnectionFactory { HostName = "localhost", Port = 5673, UserName = "guest", Password = "guest" };
+var factory = new ConnectionFactory { HostName = rabbitHost, Port = rabbitPort, UserName = "guest", Password = "guest" };
 using var connection = await factory.CreateConnectionAsync();
 using var channel = await connection.CreateChannelAsync();
 

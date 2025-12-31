@@ -17,3 +17,4 @@
 /home/mjayesh/devmode/projects/InventorySystem/Inventory.Producer/obj/Debug/net8.0/Inventory.Producer.pdb
 /home/mjayesh/devmode/projects/InventorySystem/Inventory.Producer/obj/Debug/net8.0/Inventory.Producer.genruntimeconfig.cache
 /home/mjayesh/devmode/projects/InventorySystem/Inventory.Producer/obj/Debug/net8.0/ref/Inventory.Producer.dll
+/home/mjayesh/devmode/projects/InventorySystem/Inventory.Producer/obj/Debug/net8.0/Inventory.Producer.sourcelink.json

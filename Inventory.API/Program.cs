@@ -6,7 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSignalR();
 builder.Services.AddCors(options => options.AddDefaultPolicy(p => p.AllowAnyHeader().AllowAnyMethod().AllowCredentials().SetIsOriginAllowed(_ => true)));
 
-var redis = ConnectionMultiplexer.Connect("localhost");
+var redisHost = Environment.GetEnvironmentVariable("RedisHost") ?? "localhost";
+var redis = ConnectionMultiplexer.Connect(redisHost);
 builder.Services.AddSingleton<IConnectionMultiplexer>(redis);
 
 builder.Services.AddHostedService<RedisSubscriberService>();

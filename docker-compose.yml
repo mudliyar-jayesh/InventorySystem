@@ -1,5 +1,6 @@
 version: '3.8'
 services:
+  # --- Infra --- 
   rabbitmq:
     image: rabbitmq:3-management
     container_name: tally_broker
@@ -21,3 +22,28 @@ services:
       POSTGRES_DB: "TallyData"
     ports:
       - "5432:5432"
+# Apps 
+  inventory-api:
+    build: ./Inventory.API 
+    container_name: tally_api 
+    ports:
+      - "5000:8080"
+    environment:
+      - ConnectionStrings__Redis=tally_cache:6379
+    depends_on:
+      - redis
+  inventory-consumer:
+    build: ./Inventory.Consumer
+    container_name: tally_worker 
+    environment:
+      - RabbitHost=tally_broker
+      - RabbitPort=5672
+      - RedisHost=tally_cache
+      - DbHost=tally_db
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_started
+      redis:
+        condition: service_started
